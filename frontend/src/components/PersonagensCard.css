@@ -1,0 +1,95 @@
+/* src/components/PersonagensCard.css */
+
+.anime-card {
+  background: #16213e; /* Fundo azul escuro */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid #1f4068;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Efeito ao passar o mouse: Sobe e brilha */
+.anime-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(233, 69, 96, 0.4); /* Brilho rosa neon */
+  border-color: #e94560;
+}
+
+.card-image-container {
+  width: 100%;
+  height: 250px; /* Altura fixa para ficar uniforme */
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Zoom suave na imagem ao passar o mouse */
+.anime-card:hover .card-image {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 20px;
+  flex-grow: 1; /* Empurra os botões para baixo */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  margin: 0;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.card-category {
+  background-color: #0f3460;
+  color: #4cc9f0; /* Azul ciano */
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  align-self: flex-start;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.card-actions {
+  margin-top: auto; /* Joga os botões para o final do card */
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid #1f4068;
+  padding-top: 15px;
+}
+
+.btn-action {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: white;
+}
+
+.btn-edit {
+  background-color: #f39c12; /* Laranja */
+}
+.btn-edit:hover { background-color: #d35400; }
+
+.btn-delete {
+  background-color: #e74c3c; /* Vermelho */
+}
+.btn-delete:hover { background-color: #c0392b; }
