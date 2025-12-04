@@ -14,7 +14,7 @@ function Editar() {
   });
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/personagens`)
+    axios.get(`https://animehub-9ka7.onrender.com/personagens`)
       .then((response) => {
         const personagem = response.data.find(p => p._id === id);
         if (personagem) {
@@ -35,7 +35,7 @@ function Editar() {
 
   function handleUpdate(e) {
     e.preventDefault();
-    axios.put(`http://localhost:5000/personagens/${id}`, formData)
+    axios.put(`https://animehub-9ka7.onrender.com/personagens/${id}`, formData)
       .then(() => {
         alert('Atualizado com sucesso!');
         navigate('/');

@@ -8,7 +8,7 @@ function Home() {
   const [erro, setErro] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/personagens')
+    axios.get('https://animehub-9ka7.onrender.com/personagens')
       .then((response) => {
         setPersonagens(response.data);
         setLoading(false);
@@ -21,7 +21,7 @@ function Home() {
 
   function removeCharacter(id) {
     if (window.confirm("Tem certeza que deseja excluir este personagem?")) {
-        axios.delete(`http://localhost:5000/personagens/${id}`)
+        axios.delete(`https://animehub-9ka7.onrender.com/personagens/${id}`)
         .then(() => {
             setPersonagens(personagens.filter(char => char._id !== id));
         })

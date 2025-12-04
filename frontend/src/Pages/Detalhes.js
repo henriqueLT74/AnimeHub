@@ -8,7 +8,7 @@ function Detalhes() {
 
   useEffect(() => {
     // Busca dados para exibir
-    axios.get('http://localhost:5000/personagens')
+    axios.get('https://animehub-9ka7.onrender.com/personagens')
       .then((response) => {
         const encontrado = response.data.find(p => p._id === id);
         setPersonagem(encontrado);

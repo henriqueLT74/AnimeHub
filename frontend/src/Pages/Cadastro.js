@@ -18,7 +18,7 @@ function Cadastro() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios.post('http://localhost:5000/personagens', formData)
+    axios.post('https://animehub-9ka7.onrender.com/personagens', formData)
       .then(() => {
         alert('Personagem cadastrado!');
         navigate('/');
