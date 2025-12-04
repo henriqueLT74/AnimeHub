@@ -29,10 +29,9 @@ function Home() {
     }
   }
 
-  // Estilo do Grid Container
   const gridStyle = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', // Cria colunas automáticas
+    gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', 
     gap: '30px',
     padding: '40px',
     maxWidth: '1400px',
@@ -41,7 +40,7 @@ function Home() {
 
   const pageTitleStyle = {
     textAlign: 'center',
-    color: '#e94560', // Rosa Neon
+    color: '#e94560', 
     fontSize: '2.5rem',
     textTransform: 'uppercase',
     marginBottom: '30px',
@@ -49,7 +48,7 @@ function Home() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#1a1a2e' }}> {/* Fundo Global Escuro */}
+    <div style={{ minHeight: '100vh', backgroundColor: '#1a1a2e' }}> 
       
       <h1 style={pageTitleStyle}>Galeria de Personagens</h1>
       

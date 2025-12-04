@@ -9,7 +9,7 @@ function Cadastro() {
     name: '',
     category: '',
     image: '',
-    description: '' // Novo campo no estado
+    description: '' 
   });
 
   function handleChange(e) {
@@ -36,8 +36,7 @@ function Cadastro() {
         <input type="text" name="name" placeholder="Nome do Personagem" onChange={handleChange} required style={inputStyle} />
         <input type="text" name="category" placeholder="Categoria (ex: Shonen, Isekai)" onChange={handleChange} required style={inputStyle} />
         <input type="text" name="image" placeholder="URL da Imagem" onChange={handleChange} required style={inputStyle} />
-        
-        {/* TEXTAREA PARA DESCRIÇÃO */}
+       
         <textarea 
             name="description" 
             placeholder="História ou descrição do personagem..." 

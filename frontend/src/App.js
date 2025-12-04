@@ -1,13 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-// Páginas
+
 import Home from './Pages/Home';
 import Cadastro from './Pages/Cadastro';
 import Editar from './Pages/Editar';
-import Detalhes from './Pages/Detalhes'; // Nova página
+import Detalhes from './Pages/Detalhes'; 
 
-// Estilo (Certifique-se que o arquivo se chama App.module.css)
 import styles from './App.module.css';
 
 function App() {

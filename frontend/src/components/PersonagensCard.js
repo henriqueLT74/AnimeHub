@@ -6,7 +6,6 @@ function PersonagensCard({ id, title, image, category, handleDelete }) {
   return (
     <div className="anime-card">
       
-      {/* Clique na imagem/título leva para Detalhes */}
       <Link to={`/detalhes/${id}`} style={{ textDecoration: 'none', flexGrow: 1 }}>
           <div className="card-image-container">
             <img src={image} alt={title} className="card-image" />
@@ -19,14 +18,13 @@ function PersonagensCard({ id, title, image, category, handleDelete }) {
           </div>
       </Link>
 
-      {/* Ações (Editar/Excluir) */}
       <div className="card-content" style={{ paddingTop: 0, flexGrow: 0 }}>
         <div className="card-actions">
           <Link to={`/editar/${id}`} style={{ flex: 1 }}>
             <button className="btn-action btn-edit" style={{ width: '100%' }}>Editar</button>
           </Link>
           <button className="btn-action btn-delete" onClick={(e) => {
-              e.stopPropagation(); // Impede que abra o detalhe ao clicar em excluir
+              e.stopPropagation(); 
               handleDelete(id);
           }}>Excluir</button>
         </div>

@@ -1,13 +1,11 @@
 const Personagem = require('../Models/Personagem');
 
 module.exports = {
-  // GET: Buscar todos
   async index(req, res) {
     const personagens = await Personagem.find();
     return res.json(personagens);
   },
 
-  // POST: Criar novo (Com descrição)
   async store(req, res) {
     const { name, category, image, description } = req.body; 
     try {
@@ -18,7 +16,6 @@ module.exports = {
     }
   },
 
-  // PUT: Editar (Com descrição)
   async update(req, res) {
     const { id } = req.params;
     const { name, category, image, description } = req.body;
@@ -34,7 +31,6 @@ module.exports = {
     }
   },
 
-  // DELETE: Deletar
   async delete(req, res) {
     const { id } = req.params;
     try {

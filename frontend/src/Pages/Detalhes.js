@@ -7,7 +7,6 @@ function Detalhes() {
   const [personagem, setPersonagem] = useState(null);
 
   useEffect(() => {
-    // Busca dados para exibir
     axios.get('https://animehub-9ka7.onrender.com/personagens')
       .then((response) => {
         const encontrado = response.data.find(p => p._id === id);
@@ -26,12 +25,12 @@ function Detalhes() {
 
       <div style={{ background: '#16213e', borderRadius: '15px', overflow: 'hidden', boxShadow: '0 5px 25px rgba(0,0,0,0.5)' }}>
         
-        {/* Capa */}
+        
         <div style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
              <img src={personagem.image} alt={personagem.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
 
-        {/* Conteúdo */}
+        
         <div style={{ padding: '30px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                 <h1 style={{ color: '#e94560', margin: 0, fontSize: '2.5rem' }}>{personagem.name}</h1>
