@@ -1,40 +1,36 @@
-const Character = require('../Models/Personagem');
+const Personagem = require('../Models/Personagem');
 
 module.exports = {
   // GET: Buscar todos
   async index(req, res) {
-    try {
-      const characters = await Character.find();
-      return res.json(characters);
-    } catch (error) {
-      return res.status(400).json({ error: 'Erro ao buscar personagens' });
-    }
+    const personagens = await Personagem.find();
+    return res.json(personagens);
   },
 
-  // POST: Criar novo
+  // POST: Criar novo (Com descrição)
   async store(req, res) {
-    const { name, category, image } = req.body;
+    const { name, category, image, description } = req.body; 
     try {
-      const character = await Character.create({ name, category, image });
-      return res.json(character);
+      const novoPersonagem = await Personagem.create({ name, category, image, description });
+      return res.json(novoPersonagem);
     } catch (error) {
-      return res.status(400).json({ error: 'Erro ao cadastrar personagem' });
+      return res.status(400).json({ error: 'Erro ao cadastrar' });
     }
   },
 
-  // PUT: Editar
+  // PUT: Editar (Com descrição)
   async update(req, res) {
     const { id } = req.params;
-    const { name, category, image } = req.body;
+    const { name, category, image, description } = req.body;
     try {
-      const character = await Character.findByIdAndUpdate(
+      const personagemAtualizado = await Personagem.findByIdAndUpdate(
         id, 
-        { name, category, image }, 
-        { new: true } // Retorna o dado atualizado
+        { name, category, image, description }, 
+        { new: true }
       );
-      return res.json(character);
+      return res.json(personagemAtualizado);
     } catch (error) {
-      return res.status(400).json({ error: 'Erro ao atualizar personagem' });
+      return res.status(400).json({ error: 'Erro ao atualizar' });
     }
   },
 
@@ -42,10 +38,10 @@ module.exports = {
   async delete(req, res) {
     const { id } = req.params;
     try {
-      await Character.findByIdAndDelete(id);
-      return res.json({ message: 'Personagem deletado com sucesso' });
+      await Personagem.findByIdAndDelete(id);
+      return res.json({ message: 'Deletado com sucesso' });
     } catch (error) {
-      return res.status(400).json({ error: 'Erro ao deletar personagem' });
+      return res.status(400).json({ error: 'Erro ao deletar' });
     }
   }
 };

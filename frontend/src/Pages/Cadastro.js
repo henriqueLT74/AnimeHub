@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Para redirecionar o usuário
+import { useNavigate } from 'react-router-dom';
 
 function Cadastro() {
   const navigate = useNavigate();
@@ -8,61 +8,45 @@ function Cadastro() {
   const [formData, setFormData] = useState({
     name: '',
     category: '',
-    image: ''
+    image: '',
+    description: '' // Novo campo no estado
   });
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-  // Função para enviar ao Banco (POST)
   function handleSubmit(e) {
     e.preventDefault();
-
     axios.post('http://localhost:5000/personagens', formData)
-      .then((response) => {
-        alert('Personagem cadastrado com sucesso!');
-        navigate('/'); // Redireciona para a Home
+      .then(() => {
+        alert('Personagem cadastrado!');
+        navigate('/');
       })
-      .catch((error) => {
-        console.error("Erro ao cadastrar:", error);
-        alert('Erro ao cadastrar. Verifique se o servidor está rodando.');
-      });
+      .catch((error) => console.error("Erro:", error));
   }
 
+  const inputStyle = { padding: '12px', fontSize: '1rem', borderRadius: '5px', border: '1px solid #ddd', outline: 'none' };
+
   return (
-    <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
-      <h1>Novo Personagem</h1>
+    <div style={{ padding: '30px', maxWidth: '600px', margin: '0 auto' }}>
+      <h1 style={{ textAlign: 'center', color: '#e94560', marginBottom: '20px' }}>Novo Personagem</h1>
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
         
-        <input 
-            type="text" 
-            name="name" 
-            placeholder="Nome do Personagem" 
+        <input type="text" name="name" placeholder="Nome do Personagem" onChange={handleChange} required style={inputStyle} />
+        <input type="text" name="category" placeholder="Categoria (ex: Shonen, Isekai)" onChange={handleChange} required style={inputStyle} />
+        <input type="text" name="image" placeholder="URL da Imagem" onChange={handleChange} required style={inputStyle} />
+        
+        {/* TEXTAREA PARA DESCRIÇÃO */}
+        <textarea 
+            name="description" 
+            placeholder="História ou descrição do personagem..." 
             onChange={handleChange} 
-            required 
-            style={{ padding: '10px', fontSize: '1rem' }}
+            rows="5"
+            style={{ ...inputStyle, fontFamily: 'sans-serif', resize: 'vertical' }}
         />
         
-        <input 
-            type="text" 
-            name="category" 
-            placeholder="Categoria (ex: Anime, Filme)" 
-            onChange={handleChange} 
-            required
-            style={{ padding: '10px', fontSize: '1rem' }}
-        />
-        
-        <input 
-            type="text" 
-            name="image" 
-            placeholder="URL da Imagem (Link da internet)" 
-            onChange={handleChange} 
-            required
-            style={{ padding: '10px', fontSize: '1rem' }}
-        />
-        
-        <button type="submit" style={{ padding: '10px', background: '#2c3e50', color: 'white', border: 'none', cursor: 'pointer', fontWeight: 'bold' }}>
+        <button type="submit" style={{ padding: '15px', background: '#e94560', color: 'white', border: 'none', cursor: 'pointer', fontWeight: 'bold', fontSize: '1.1rem', borderRadius: '5px', marginTop: '10px' }}>
           CADASTRAR
         </button>
       </form>
